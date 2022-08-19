@@ -189,6 +189,7 @@ a.custom-card:hover {
   color: orange;
 }
 
+
 h2 {
   text-align: center;
   
@@ -198,9 +199,6 @@ h2 {
   text-align: center;
 }
 
-#form.placeholder {
-  text-align: left;
-}
 
 .boton {
   text-align: center;
@@ -210,19 +208,7 @@ h2 {
   margin-top: 200px;
 }
 
-.usuario {
-  padding-left:100px;
-  
-}
 
-.contraseña {
-  padding-left: 100px;
-}
 
-#login {
-  padding: 10px 70px;
-}
 
-.parrafo {
-  text-align: center;
-}
+

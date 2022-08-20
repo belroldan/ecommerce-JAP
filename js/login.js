@@ -1,19 +1,21 @@
-function iniciar(){
-    let usuario ={}
-    usuario.nombre = document.getElementById('usuario').value;
-    usuario.contraseña = document.getElementById('contraseña').value;
+function ingresar(){
+    let usuario = document.getElementById("email").value;
+    let clave = document.getElementById("contraseña").value;
 
-    if( usuario.nombre === "" || usuario.contraseña === ""){
-        alert ('Ingrese usuario y clave');
+    if (usuario !== "" && clave !== ""){
+        sessionStorage.setItem('email',usuario);
+        alert('success')
+        return location.href = "index.html"
     } else {
-        localStorage.setItem('item',usuario);
-        location.href="index.html";
+        return location.href = "login.html"
     }
+
+    
 }
-
-document.addEventListener('DOMContentLoaded',()=>{
-
-    document.getElementById('login').addEventListener('click',()=>{
-        iniciar();
-    });
+document.addEventListener('DOMContentLoaded', ()=>{
+    document.getElementById('ingresar').addEventListener('submit',()=>{
+        ingresar();
+    })
 })
+
+

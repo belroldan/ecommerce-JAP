@@ -195,20 +195,33 @@ h2 {
   
 }
 
-#form {
+.parrafo {
   text-align: center;
 }
-
 
 .boton {
   text-align: center;
 }
 
 .inicio {
-  margin-top: 200px;
+  margin-top: 40px;
 }
 
+.form-group {
+  text-align: center;
+  padding: 6px 800px;
+  margin: 2px 2px 0 2px;
+}
 
+.form-group2 {
+  text-align: center;
+  padding: 6px 800px;
+}
 
+.emailtag{
+  padding-bottom: 5px;
+}
 
-
+.pwtag {
+  padding-bottom: 5px;
+}

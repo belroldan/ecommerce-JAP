@@ -18,22 +18,22 @@
 
 <body>
   
-<div class="inicio">
-  <h2>Inicio de sesión</h2>
+  <h2 class="inicio">Inicio de sesión</h2>
   <br>
-<div id="form">
-  Usuario: <br>
-  <input type="text" class="usuario">
-  <br><br>
-  Contraseña: <br>
-  <input type="password" class="contraseña">
+  <form action="index.html">
+  <div class="form-group">
+    <label for="email "class="emailtag">Email</label>
+    <input type="text" class="form-control" id="email" placeholder="Email" required>
+  </div>
+  <div class="form-group2">
+    <label for="pwd" class="pwtag">Contraseña</label>
+    <input type="password" class="form-control" id="pwd" placeholder="Contraseña" required>
+  </div>
+  <br>
+  <div class="boton">
+  <input type="submit" class="btn btn-primary" value="Ingresar" id="ingresar" onsubmit="ingresar()">
 </div>
-<br><br>
-<div class="boton">
-<button type="button" class="btn btn-primary" id="login" onclick="iniciar()">Ingresar</button>
-</div>
-</div>
-<br><br>
+  </form>
   <!--
   <main class="mt-5">
     <div class="container">

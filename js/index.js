@@ -11,18 +11,17 @@ document.addEventListener("DOMContentLoaded", function(){
         localStorage.setItem("catID", 103);
         window.location = "products.html"
     });
+
+    
+        
+        let usuario = sessionStorage.getItem('email');
+    
+        if(usuario!==null){
+           document.getElementById('email').innerHTML=usuario;
+        } else {
+            return location.href = 'login.html'
+        }
+    
 });
 
 
-document.addEventListener('DOMContentLoaded',()=>{
-
-    let usuario = localStorage.getItem('item');
-
-    if(usuario===null){
-        alert('Debes iniciar sesion para ver esta pagina');
-        location.href="login.html";
-    } else {
-        document.getElementById('usuario').innerHTML=usuario.nombre;
-        document.getElementById('contraseña').innerHTML=usuario.contraseña;
-    }
-})

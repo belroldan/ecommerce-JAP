@@ -1,16 +1,15 @@
 function ingresar(){
-    let usuario = document.getElementById("email").value;
-    let clave = document.getElementById("pwd").value;
+    let user = document.getElementById("email").value;
+    let contraseña = document.getElementById("contraseña").value;
 
-    if (usuario !== "" && clave !== ""){
-        sessionStorage.setItem('email',usuario);
-        return location.href = "index.html"
-    }
+    if (user !== "" && contraseña !== ""){
+        sessionStorage.setItem("email", user);
+        location.href = "index.html";
+    } 
 }
 
 document.addEventListener('DOMContentLoaded', ()=>{
-    
-    document.getElementById('ingresar').addEventListener('submit',()=>{
+    document.getElementById('ingresar').addEventListener('click',()=>{
         ingresar();
     });
 });

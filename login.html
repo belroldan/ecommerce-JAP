@@ -17,21 +17,22 @@
 </head>
 
 <body>
-  
+ 
+  <form action="index.html">
+   <img src="/img/login.png" class="loginpng">
   <h2 class="inicio">Inicio de sesión</h2>
   <br>
-  <form action="index.html">
   <div class="form-group">
     <label for="email "class="emailtag">Email</label>
     <input type="text" class="form-control" id="email" placeholder="Email" required>
   </div>
   <div class="form-group2">
     <label for="pwd" class="pwtag">Contraseña</label>
-    <input type="password" class="form-control" id="pwd" placeholder="Contraseña" required>
+    <input type="password" class="form-control" id="contraseña" placeholder="Contraseña" required>
   </div>
   <br>
   <div class="boton">
-  <input type="submit" class="btn btn-primary" value="Ingresar" id="ingresar" onsubmit="ingresar()">
+  <input type="submit" class="btn btn-primary" value="Ingresar" id="ingresar" onclick="ingresar()">
 </div>
   </form>
   <!--

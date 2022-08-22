@@ -9,7 +9,7 @@ function ingresar(){
 }
 
 document.addEventListener('DOMContentLoaded', ()=>{
-    document.getElementById('ingresar').addEventListener('click',()=>{
+    document.getElementById('ingresar').addEventListener('submit',()=>{
         ingresar();
     });
 });

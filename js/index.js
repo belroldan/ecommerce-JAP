@@ -11,11 +11,15 @@ document.addEventListener("DOMContentLoaded", function(){
         localStorage.setItem("catID", 103);
         window.location = "products.html"
     });
-
+    let email = localStorage.getItem("email");
+    if (email !== null){
+        document.getElementById("usuario").innerHTML = email;
+    }
+    /*
     document.getElementById('login').addEventListener('onclick', function() {
         localStorage.getItem("email");
         window.location = "index.html"
-    });
+    });*/
 });
 
 

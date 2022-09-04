@@ -12,12 +12,10 @@ document.addEventListener("DOMContentLoaded", function(){
         window.location = "products.html"
     });
 
-    let user = sessionStorage.getItem("email");
-
-        if(user === null){
-            alert("Inicia sesión para ver esta página")
-            location.href = "login.html";
-        } 
+    document.getElementById('login').addEventListener('onclick', function() {
+        localStorage.getItem("email");
+        window.location = "index.html"
+    });
 });
 
 

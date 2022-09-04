@@ -32,10 +32,16 @@ function verLista(autos){
 };
 
 // funcion que filtra los productos
+function filtrar(){
+    //parseInt porque es un string, y necesito un integer
+    let inicial = parseInt(document.getElementById('min').value);//tomo el valor mínimo
+    let final = parseInt(document.getElementById('max').value);//tomo el valor máximo
+    let listaFiltrada = lista.filter(producto => producto.cost >= inicial && producto.cost <= final );
+    // arr.sort((a,b)=>a-b)
+    listaFiltrada.sort((ant,sig)=>ant.cost-sig.cost);
 
-
-
-
+    verLista(listaFiltrada);
+};
 
 // DOM
 document.addEventListener("DOMContentLoaded", function(e){
@@ -54,6 +60,10 @@ document.addEventListener("DOMContentLoaded", function(e){
             lista = resultObj.data;
             verLista(lista);
         }
+    });
+    // filtra todos los productos
+    document.getElementById("filtro").addEventListener("click",()=>{
+        filtrar()
     });
 
 });

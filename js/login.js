@@ -3,13 +3,13 @@ function ingresar(){
     let contraseña = document.getElementById("contraseña").value;
 
     if (user !== "" && contraseña !== ""){
-        sessionStorage.setItem("email", user);
+        localStorage.setItem("email", user);
         location.href = "index.html";
     } 
 }
 
 document.addEventListener('DOMContentLoaded', ()=>{
-    document.getElementById('ingresar').addEventListener('submit',()=>{
+    document.getElementById('login').addEventListener('onclick',()=>{
         ingresar();
     });
 });

@@ -1,7 +1,10 @@
 const AUTOS_URL = "https://japceibal.github.io/emercado-api/cats_products/101.json";
-
+const PRODUCTOS_URL = "https://japceibal.github.io/emercado-api/cats_products/";
+let category = localStorage.getItem('catID');
 let lista = [];
 
+// FUNCIONES
+// funcion que muestra la categoria autos
 function verLista(autos){
     let listaAutos = "";
     for (let auto of autos.products){
@@ -23,15 +26,20 @@ function verLista(autos){
         </div>
         `
        
-    }
+    };
      document.getElementById('autos').innerHTML = listaAutos; 
     
-}
+};
+
+// funcion que filtra los productos
 
 
 
 
+
+// DOM
 document.addEventListener("DOMContentLoaded", function(e){
+    // muestra autos
     getJSONData(AUTOS_URL).then(function(resultObj){
         if (resultObj.status === "ok")
         {
@@ -39,5 +47,13 @@ document.addEventListener("DOMContentLoaded", function(e){
             verLista(lista);
         }
     });
-});
+    // muestra todos los productos
+    getJSONData(PRODUCTOS_URL + category + ".json").then(function(resultObj){
+        if (resultObj.status === "ok")
+        {
+            lista = resultObj.data;
+            verLista(lista);
+        }
+    });
 
+});

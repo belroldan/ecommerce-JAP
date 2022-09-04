@@ -3,6 +3,9 @@ const PRODUCTOS_URL = "https://japceibal.github.io/emercado-api/cats_products/";
 let category = localStorage.getItem('catID');
 let lista = [];
 let categoriesArray = [];
+let minCount = undefined;
+let maxCount = undefined;
+
 
 // FUNCIONES
 // muestra todas las categorias
@@ -44,11 +47,7 @@ function mostrarCategorias(array){
     mostrarCategorias(listaFiltrada);
 }; 
 
-function limpiar(){
-        document.getElementById("rangeFilterCountMin").value = ""
-        document.getElementById("rangeFilterCountMax").value = ""
-        filtrar()
-}
+
 
 
 // DOM
@@ -97,10 +96,13 @@ document.addEventListener("DOMContentLoaded", function(e){
             });
             mostrarCategorias(result)
         });
-        document.getElementById("clearRangeFilter").addEventListener("click",()=>{
-            limpiar()
+        document.getElementById("clearRangeFilter").addEventListener("click", function(){
+            document.getElementById("rangeFilterCountMin").value = "";
+            document.getElementById("rangeFilterCountMax").value = "";
+        minCount = undefined;
+        maxCount = undefined;
+            mostrarCategorias(categoriesArray)
         });
-
 });
 
 

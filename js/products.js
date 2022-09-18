@@ -1,20 +1,27 @@
 const AUTOS_URL = "https://japceibal.github.io/emercado-api/cats_products/101.json";
 const PRODUCTOS_URL = "https://japceibal.github.io/emercado-api/cats_products/";
+
 let category = localStorage.getItem('catID');
 let lista = [];
 let categoriesArray = [];
 let minCount = undefined;
 let maxCount = undefined;
 
-
 // FUNCIONES
+// guarda id de producto, luego redirecciona a product-info.html
+function setProdID(id) {
+    localStorage.setItem("prodID", id);
+    window.location = "product-info.html"
+};
 // muestra todas las categorias
 function mostrarCategorias(array){
     let htmlContentToAppend = "";
 
     for(let i = 0; i < array.length; i++){ 
         let categoria = array[i];
-        htmlContentToAppend += `<div class="list-group-item list-group-item-action">
+        htmlContentToAppend += `
+        <div onclick="setProdID(${categoria.id})">
+        <div class="list-group-item list-group-item-action cursor-active">
                 <div class="row">
                     <div class="col-3">
                     <img src="` + categoria.image + `" alt="product image" class="img-thumbnail"> 
@@ -29,7 +36,7 @@ function mostrarCategorias(array){
                     </div>
                 </div>
             </div>
-        </div>
+        </div></div>
         ` 
     };
      document.getElementById('cat').innerHTML = htmlContentToAppend; 
@@ -46,9 +53,6 @@ function mostrarCategorias(array){
 
     mostrarCategorias(listaFiltrada);
 }; 
-
-
-
 
 // DOM
 document.addEventListener("DOMContentLoaded", function(e){
@@ -104,6 +108,8 @@ document.addEventListener("DOMContentLoaded", function(e){
             mostrarCategorias(categoriesArray)
         });
 });
+
+
 
 
 // ENTREGA 1 (muestra AUTOS)

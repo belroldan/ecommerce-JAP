@@ -233,3 +233,17 @@ h2 {
   width: 30%;
 
 }
+
+#datosprod {
+  margin-top: 30px;
+  padding-left: 170px;
+  padding-right: 170px;
+}
+
+#imagenes img {
+  margin: 0 6px;
+}
+
+#checked {
+  color: orange;
+}

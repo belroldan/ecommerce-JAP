@@ -30,9 +30,16 @@
           <li class="nav-item">
             <a class="nav-link" href="sell.html">Vender</a>
           </li>
-          <li class="nav-item">
-            <!-- email del usuario -->
-            <a id="usuario" class="nav-link" href="my-profile.html"></a>
+          <li class="nav-item"> 
+            <div class="dropdown">
+              <button class="btn btn-secondary dropdown-toggle" type="button" id="usuario" data-bs-toggle="dropdown" aria-expanded="false">
+              </button>
+              <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                <li><a class="dropdown-item" href="cart.html">Mi carrito</a></li>
+                <li><a class="dropdown-item" href="my-profile.html">Mi perfil</a></li>
+                <li><a class="dropdown-item" id="logout" style="cursor: pointer;">Cerrar sesión</a></li>
+              </ul>
+            </div>
           </li>
         </ul>
       </div>
@@ -43,7 +50,8 @@
       <br>
       <h2>Productos</h2>
       <p class="parrafo">Verás aquí todos los productos de la categoría Autos</p>
-      <!-- filtros -->
+      
+      <!-- Filtros -->
       <div class="container">
         <div class="row">
           <div class="col text-end">
@@ -80,8 +88,8 @@
         </div>
       <br>
 
+      <!--Muestra las categorias-->
       <div id="cat"> 
-
       </div>
       
     </div>

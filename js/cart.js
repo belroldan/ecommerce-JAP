@@ -25,11 +25,7 @@ let multiplicarArray = []
             ${article.currency} ${article.unitCost}
             ` 
             document.getElementById("prodCost").innerHTML = cost
-            
-            
         } 
-        
-
     }
 
     // multiplica la cantidad ingresada de articulos por el precio de la unidad

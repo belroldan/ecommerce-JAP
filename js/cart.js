@@ -1,9 +1,20 @@
+// variables, arrays
 const USUARIO_25801 = "https://japceibal.github.io/emercado-api/user_cart/25801.json";
 let array = [];
 let multiplicarArray = []
+let feedback = document.getElementById("feedback")
+
+let cardNumber = document.getElementById("cardNumber")
+let secNumber = document.getElementById("secNumber")
+let expireDate = document.getElementById("expireDate")
+let accNumber = document.getElementById("accNumber")
+
+let transferencia = document.getElementById("transferencia")
+let creditCard = document.getElementById("creditCard")
+
+let cerrarModal = document.getElementById("cerrarModal");
 
 // funciones
-
 
     // muestra el producto del JSON en el carrito
     function showCart(){
@@ -75,11 +86,35 @@ let multiplicarArray = []
 
 
    // forma de pago
-   function payment(){
-    
+   // forma de pago por transferencia
+   function paymentBank(){    
+    if (transferencia.checked = true){
+        accNumber.disabled = false;
+        cardNumber.disabled = true;
+        secNumber.disabled = true;
+        expireDate.disabled = true;
+        feedback.classList.remove("text-warning")
+        feedback.classList.add("text-success")
+        feedback.textContent = "Ha seleccionado Transferencia."
+    } 
    }
 
-    
+   // forma de pago por tarjeta de credito
+   function paymentCard(){
+    if (creditCard.checked = true){
+        accNumber.disabled = true;
+        cardNumber.disabled = false;
+        secNumber.disabled = false;
+        expireDate.disabled = false;
+        feedback.classList.remove("text-warning")
+        feedback.classList.add("text-success")
+        feedback.textContent = "Ha seleccionado Tarjeta De Credito."
+    }
+   }
+
+   
+
+
 // DOM
    document.addEventListener("DOMContentLoaded", function(){
 
@@ -89,6 +124,7 @@ let multiplicarArray = []
             showCart()
             multiplicar()
         };
+        alertNoPayment()
     });
 });
 
@@ -106,6 +142,7 @@ let multiplicarArray = []
         form.addEventListener('submit', function (event) {
           if (!form.checkValidity()) {
             validar()
+            alertNoPayment()
             event.preventDefault()
             event.stopPropagation()
           }

@@ -231,7 +231,6 @@ h2 {
   margin-left: auto;
   margin-right: auto;
   width: 30%;
-
 }
 
 #datosprod {
@@ -247,3 +246,59 @@ h2 {
 #checked {
   color: orange;
 }
+
+#paymentP, #paymentChoose {
+  display:inline-block;
+  vertical-align:middle;
+}
+
+#finishBuy {
+  margin: auto;
+  display: flex;
+  text-align: center;
+}
+
+#prodQuantity {
+  text-align: center;
+}
+
+.costos {
+  margin: auto;
+  display: grid;
+  overflow-x: auto;
+  width: 50%;
+}
+
+#producto {
+  margin: auto;
+  width: 50%;
+  height: auto;
+  overflow-x: auto;
+}
+
+.envio {
+  margin: auto;
+  width: 50%;
+  display: block;
+  overflow-x: auto;
+}
+
+body {
+  overflow-x: auto;
+  margin: auto;
+  width: 100%;
+  height: auto;
+  font-family: Raleway, serif;
+}
+
+.payment {
+  overflow-x: auto;
+  margin: auto;
+  width: 50%;
+  height: auto;
+}
+
+.display-6 {
+  text-align: center;
+}
+

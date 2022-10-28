@@ -45,12 +45,10 @@
     </div>
   </nav>
   <!-- Carrito de compras -->
-  <h1 class="display-6" style="text-align: center; margin-top: 20px;">Carrito de compras <i class="fa fa-shopping-cart" aria-hidden="true"></i></h1>
-  <!-- Tabla -->
-
-  
-      <table class="table table-hover" style="width: 900px; margin-left: 450px;">
-
+  <div id="producto">
+  <h1 class="display-6">Carrito de compras <i class="fa fa-shopping-cart" aria-hidden="true"></i></h1>
+  <!-- tabla carrito de compras -->
+      <table class="table table-hover">
         <thead>
           <tr>
             <th scope="col"></th>
@@ -72,14 +70,17 @@
 
         </tbody>
       </table>
-  
-      <hr class="my-4" style="margin: 400px;">
+      <hr class="my-4">
+    </div>
+  <!-- ----------------------------------------------------------------------------- -->
       
+  <!-- ----------------------------------------------------------------------------- -->
+      <!-- Tipo de envio -->
+      <div class="envio">
+
+      <legend>Tipo de envío</legend>
       
-      <h3 class="fw-light" style="margin-left: 450px;">Tipo de envío</h3>
-      
-      <div class="radios" style="margin-left: 450px;">
-      <div class="form-check" >
+      <div class="form-check">
         <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
         <label class="form-check-label" for="flexRadioDefault1">
           Premium 2 a 5 días (15%)
@@ -98,23 +99,135 @@
         </label>
       </div>
       <br>
+      <!-- Direccion de envio-->
       <h4 class="fw-light">Dirección de envío</h3>
-      <form style="width: 300px;">
+        <form class="row-md-12">
+        <form class="needs-validation" method="get" autocomplete="off" novalidate>
+          <div class="row">
+        <div class="col-md-6">
         <label class="fw-light">Calle</label>
-        <input class="form-control" type="text">
-
-        <label class="fw-light">Esquina</label>
-        <input class="form-control" type="text">
-
+        <input class="form-control" type="text" id="calle" required>
+        <div id="calleFeedback" class="invalid-feedback">Ingresa una calle</div>
+      </div>
+      <div class="col-md-3">
         <label class="fw-light">Número</label>
-        <input class="form-control" type="number">
-      </form>
+        <input class="form-control" type="number" id="numero" min="0" required>
+        <div id="numeroFeedback" class="invalid-feedback">Ingresa un número</div>
+      </div>
+    
+    <div class="col-md-6">
+      <label class="fw-light">Esquina</label>
+      <input class="form-control" type="text" id="esquina" required>
+      <div id="esquinaFeedback" class="invalid-feedback">Ingresa una esquina</div>
     </div>
-    <hr class="my-4" style="margin: 400px;">
+  </div>
+      </form>
+      <hr class="my-4">
 
+    </div>
+  </div>
+  <!-- ----------------------------------------------------------------------------- -->
+
+  <!-- Costos -->
+<div class="costos">
+  <legend>Costos</legend>
+  <div class="form-group border p-3 mb-3">
+    <div>
+      <label>Subtotal</label>
+      <br>
+      <small class="text-muted">Costo unitario del producto por cantidad</small>
+      <p id="unitCost">USD</p>
+    </div>
+    <hr>
+    <div>
+      <label>Costo de envio</label>
+      <br>
+      <small class="text-muted">Segun el tipo de envío</small>
+      <p id="shipCost"> USD</p>
+    </div>
+    <hr>
+    <div>
+      <label>Total ($)</label>
+      <p id="total" class=""><strong>USD</strong></p>
+    </div>
+    </div>
+    <button class="btn btn-primary" type="submit">Finalizar compra</button>
+</form>
+  </div>
+      
+<!-- ----------------------------------------------------------------------------- -->
+<hr class="my-4" style="margin: 400px;">
+<!-- ----------------------------------------------------------------------------- -->
+
+  <!-- Modal -->
+  <div class="modal fade" tabindex="-1" role="dialog" id="paymentMethod" id="pagomodal">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <form class="col-md-12">
+          
+          <h5 class="modal-title"><strong>Forma de pago</strong></h5>
+        </div>
+        <div class="modal-body">
+          <div class="container">
+            
+              <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
+            <label>Tarjeta de crédito</label>
+          <hr>
+
+          <div class="row">
+            <div class="col-md-6">
+            <label>Número de tarjeta</label>
+            <input type="number" class="form-control" id="cardNumber">
+            </div>
+            <div class="col-md-4">
+            <label>Código de seg.</label>
+            <input type="number" class="form-control">
+          </div>
+          
+
+          <div class="col-md-6">
+            <label>Vencimiento (MM/AA)</label>
+            <input type="number" class="form-control">
+          </div>
+        </div>
+          <br>
+          <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option2">
+          <label>Transferencia bancaria</label>
+          <hr>
+          
+          <div class="col-md-6">
+            <label>Número de cuenta</label>
+            <input type="number" class="form-control">
+          </div>
+          <br>
+            </div>
+        </div>
+      </form>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Cerrar</button>
+        </div>
+      </div></div>
+      </div>
+      </div>
+    </div>
+  </div>
+
+
+<!-- ----------------------------------------------------------------------------- -->
+  <!-- Forma de Pago-->
+  <div class="payment">
+  <legend>Forma de pago</legend>
+  <label id="paymentP">Selecciona una forma de pago</label>
+    <button type="button" class="m-1 btn btn-link" data-bs-toggle="modal"
+      data-bs-target="#paymentMethod">Seleccionar<i class="fa fa-credit-card" aria-hidden="true"></i></button>
+</div>
+  <!-- ----------------------------------------------------------------------------- -->
+                              <!-- FOOTER -->
+  <!-- ----------------------------------------------------------------------------- -->
 
   <!-- 
-  <main>
+    <main>
     <div class="container">
       <div class="alert alert-danger text-center" role="alert">
         <h4 class="alert-heading">Funcionalidad en desarrollo</h4>

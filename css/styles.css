@@ -266,7 +266,7 @@ h2 {
   margin: auto;
   display: grid;
   overflow-x: auto;
-  width: 50%;
+  width: 100%;
 }
 
 #producto {
@@ -294,7 +294,7 @@ body {
 .payment {
   overflow-x: auto;
   margin: auto;
-  width: 50%;
+  width: 100%;
   height: auto;
 }
 
@@ -302,3 +302,9 @@ body {
   text-align: center;
 }
 
+#finish {
+  margin: auto;
+  width: 100%;
+  height: auto;
+  display: block;
+}

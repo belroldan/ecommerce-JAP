@@ -14,6 +14,7 @@ let creditCard = document.getElementById("creditCard")
 
 let cerrarModal = document.getElementById("cerrarModal");
 
+
 // funciones
 
     // muestra el producto del JSON en el carrito
@@ -50,6 +51,7 @@ let cerrarModal = document.getElementById("cerrarModal");
             let article = array.articles[i];
 
             document.getElementById("prodSubtotal").innerHTML = "<strong>" + article.currency + " " + subtotal * article.unitCost + "</strong>"
+            document.getElementById("subGeneral").innerHTML = subtotal * article.unitCost 
         } 
         if (isNaN(subtotal)){
             document.getElementById("prodSubtotal").innerHTML = `<div class="alert alert-danger alert-dismissible fade show" role="alert">Debes al menos colocar 1 artículo </div>`
@@ -112,7 +114,25 @@ let cerrarModal = document.getElementById("cerrarModal");
     }
    }
 
-   
+
+   // costo de envio
+   function shipCost(){
+    let quinceporc = document.getElementById("15porc");
+    let sieteporc = document.getElementById("7porc");
+    let cincoporc = document.getElementById("5porc");
+
+    for(let i = 0; i < array.articles.length; i++){
+        let article = array.articles[i];
+    
+    if (quinceporc.checked = true){
+        document.getElementById("shipCost").innerHTML =  article.unitCost / 100 * 15
+    } else if (sieteporc.checked = true){
+        document.getElementById("shipCost").innerHTML = article.unitCost / 100 * 7
+    } else if (cincoporc.checked = true){
+        document.getElementById("shipCost").innerHTML = article.unitCost / 100 * 5
+    } 
+    }
+   }
 
 
 // DOM
@@ -123,8 +143,8 @@ let cerrarModal = document.getElementById("cerrarModal");
             array = resultObj.data
             showCart()
             multiplicar()
+            shipCost()
         };
-        alertNoPayment()
     });
 });
 
@@ -142,7 +162,6 @@ let cerrarModal = document.getElementById("cerrarModal");
         form.addEventListener('submit', function (event) {
           if (!form.checkValidity()) {
             validar()
-            alertNoPayment()
             event.preventDefault()
             event.stopPropagation()
           }

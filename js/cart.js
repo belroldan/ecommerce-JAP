@@ -116,23 +116,38 @@ let cerrarModal = document.getElementById("cerrarModal");
 
 
    // costo de envio
-   function shipCost(){
-    let quinceporc = document.getElementById("15porc");
-    let sieteporc = document.getElementById("7porc");
-    let cincoporc = document.getElementById("5porc");
-
-    for(let i = 0; i < array.articles.length; i++){
-        let article = array.articles[i];
+   function cost() {
     
-    if (quinceporc.checked = true){
-        document.getElementById("shipCost").innerHTML =  article.unitCost / 100 * 15
-    } else if (sieteporc.checked = true){
-        document.getElementById("shipCost").innerHTML = article.unitCost / 100 * 7
-    } else if (cincoporc.checked = true){
-        document.getElementById("shipCost").innerHTML = article.unitCost / 100 * 5
-    } 
-    }
-   }
+    // opciones de envio
+    let quinceporc = document.getElementById("15porc"); 
+    let sieteporc = document.getElementById("7porc"); 
+    let cincoporc = document.getElementById("5porc"); 
+
+    // lugares donde se muestra el total
+    
+    let shipCost = document.getElementById("shipCost"); 
+    let subGeneral = document.getElementById("subGeneral").innerHTML
+    
+    if (quinceporc.checked) {
+        // premium
+        shipCost.innerHTML = Math.round(subGeneral*0.15) // 2280
+
+        // express
+      } else if (sieteporc.checked) { 
+        shipCost.innerHTML =  Math.round(subGeneral*0.07) // 1064
+
+        // standard
+      } else if (cincoporc.checked) {
+        shipCost.innerHTML =  Math.round(subGeneral*0.05) // 760
+      } 
+
+    // se muestra el total con la suma
+      let total = document.getElementById("total"); 
+     total.innerHTML = parseFloat(subGeneral) + parseFloat(shipCost.innerText);
+
+    };
+
+
 
 
 // DOM
@@ -143,7 +158,7 @@ let cerrarModal = document.getElementById("cerrarModal");
             array = resultObj.data
             showCart()
             multiplicar()
-            shipCost()
+            
         };
     });
 });

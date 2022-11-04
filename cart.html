@@ -79,27 +79,34 @@
       <div class="envio">
 
       <legend>Tipo de envío</legend>
+
+      <br>
       
+
+      <form class="needs-validation" method="get" autocomplete="off" novalidate>
+
       <div class="form-check" >
-        <input class="form-check-input" type="radio" name="flexRadioDefault" id="15porc" onclick="cost()"checked>
+        <input class="form-check-input" type="radio" name="flexRadioDefault" id="15porc" onclick="cost()" required>
         <label class="form-check-label" for="15porc">
           Premium 2 a 5 días (15%)
         </label>
       </div>
 
       <div class="form-check">
-        <input class="form-check-input" type="radio" name="flexRadioDefault" id="7porc" onclick="cost()">
+        <input class="form-check-input" type="radio" name="flexRadioDefault" id="7porc" onclick="cost()" required> 
         <label class="form-check-label" for="7porc">
           Express 5 a 8 días (7%)
         </label>
       </div>
 
       <div class="form-check">
-        <input class="form-check-input" type="radio" name="flexRadioDefault" id="5porc" onclick="cost()">
+        <input class="form-check-input" type="radio" name="flexRadioDefault" id="5porc" onclick="cost()" required>
         <label class="form-check-label" for="5porc">
           Standard 12 a 15 días (5%)
         </label>
+        <div class="invalid-feedback" id="feedbackShip"></div>
       </div>
+      
 
       <br>
 
@@ -107,7 +114,6 @@
       <h4 class="fw-light">Dirección de envío</h3>
 
         <div class="row-md-12">
-    <form class="needs-validation" method="get" autocomplete="off" novalidate>
 
         <div class="row">
             <div class="col-md-6">
@@ -128,7 +134,7 @@
             <div id="esquinaFeedback" class="invalid-feedback">Ingresa una esquina</div>
           </div>
         </div>
-
+      
           </div>
         
     <hr class="my-4">
@@ -173,8 +179,8 @@
 
       <div class="payment">
         <legend>Forma de pago</legend>
-        <label class="text-warning" id="feedback">
-          Seleccione metodo de pago
+        <label class="text" id="feedback">
+          No ha seleccionado
         </label>
           <button type="button" class="m-1 btn btn-link" data-bs-toggle="modal"
             data-bs-target="#paymentMethod">Seleccionar <i class="fa fa-credit-card" aria-hidden="true"></i></button>
@@ -187,18 +193,20 @@
 <!-- -----------------------------------------------------------------------------   -->
 
   <!-- Modal -->
+  <form class="needs-validation" method="get" autocomplete="off" novalidate>
   <div class="modal fade" tabindex="-1" role="dialog" id="paymentMethod" id="pagomodal">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
 
-          
           <h5 class="modal-title"><strong>Forma de pago</strong></h5>
         </div>
         <div class="modal-body">
           <div class="container">
             
-              <input class="form-check-input" type="radio" name="exampleRadios" id="creditCard"  onchange="paymentCard()"value="option1">
+
+            <!-- opcion tarjeta -->
+              <input class="form-check-input" type="radio" name="exampleRadios" id="creditCard"  onchange="paymentCard()"value="option1" required>
             <label>Tarjeta de crédito</label>
           
             <br><br>
@@ -206,27 +214,28 @@
           <div class="row">
             <div class="col-md-6">
             <label>Número de tarjeta</label>
-            <input type="number" class="form-control" id="cardNumber">
+            <input type="number" class="form-control" id="cardNumber" required>
             </div>
             <div class="col-md-4">
             <label>Código de seg.</label>
-            <input type="number" class="form-control" id="secNumber">
+            <input type="number" class="form-control" id="secNumber" required>
           </div>
 
           <div class="col-md-6">
             <label>Vencimiento (MM/AA)</label>
-            <input type="number" class="form-control" id="expireDate">
+            <input type="number" class="form-control" id="expireDate" required>
           </div>
         </div>
 
         <hr>
         
-          <input class="form-check-input" type="radio" name="exampleRadios" id="transferencia" onchange="paymentBank()" value="option2">
+        <!-- opcion transferencia-->
+          <input class="form-check-input" type="radio" name="exampleRadios" id="transferencia" onchange="paymentBank()" value="option2" required>
           <label>Transferencia bancaria</label>
           <br><br>
           <div class="col-md-6">
             <label>Número de cuenta</label>
-            <input type="number" class="form-control" id="accNumber">
+            <input type="number" class="form-control" id="accNumber" required>
           </div>
           <br>
             </div>
@@ -238,6 +247,7 @@
       </div>
       </div>
       </div>
+        </form>
     
 
 
@@ -280,6 +290,7 @@
   <script src="js/bootstrap.bundle.min.js"></script>
   <script src="js/init.js"></script>
   <script src="js/cart.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </body>
 
 </html>

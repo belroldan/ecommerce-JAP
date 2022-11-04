@@ -2,6 +2,7 @@
 const USUARIO_25801 = "https://japceibal.github.io/emercado-api/user_cart/25801.json";
 let array = [];
 let multiplicarArray = []
+
 let feedback = document.getElementById("feedback")
 
 let cardNumber = document.getElementById("cardNumber")
@@ -14,6 +15,7 @@ let creditCard = document.getElementById("creditCard")
 
 let cerrarModal = document.getElementById("cerrarModal");
 
+let finishBuy = document.getElementById("finish");
 
 // funciones
 
@@ -64,30 +66,26 @@ let cerrarModal = document.getElementById("cerrarModal");
     let esquina = document.getElementById("esquina").value;
     let numero = document.getElementById("numero").value;
 
-    let callehtml = "";
-    let esquinahtml = "";
-    let numerohtml  = "";
+    let feedbackCalle = document.getElementById("calleFeedback");
+    let feedbackEsq = document.getElementById("esquinaFeedback");
+    let feedbackNum = document.getElementById("numeroFeedback");
+
+   
     if (calle === ""){
-        callehtml += `
-        Ingresa una calle.
-        `
-    } document.getElementById("calleFeedback").innerHTML = callehtml;
+        feedbackCalle.innerHTML = "Ingresa una calle."
+    } 
 
     if (esquina === ""){
-        esquinahtml += `
-        Ingresa una esquina.
-        `
-    } document.getElementById("esquinaFeedback").innerHTML = esquinahtml;
+        feedbackEsq.innerHTML = "Ingresa una esquina."
+    } 
 
     if (numero === ""){
-        numerohtml += `
-        Ingresa un número.
-        `
-    } document.getElementById("numeroFeedback").innerHTML = numerohtml;
+        feedbackNum.innerHTML = "Ingresa un número."
+    } 
    }
 
 
-   // forma de pago
+   // formas de pago
    // forma de pago por transferencia
    function paymentBank(){    
     if (transferencia.checked = true){
@@ -95,7 +93,7 @@ let cerrarModal = document.getElementById("cerrarModal");
         cardNumber.disabled = true;
         secNumber.disabled = true;
         expireDate.disabled = true;
-        feedback.classList.remove("text-warning")
+        feedback.classList.remove("text")
         feedback.classList.add("text-success")
         feedback.textContent = "Ha seleccionado Transferencia."
     } 
@@ -108,12 +106,11 @@ let cerrarModal = document.getElementById("cerrarModal");
         cardNumber.disabled = false;
         secNumber.disabled = false;
         expireDate.disabled = false;
-        feedback.classList.remove("text-warning")
+        feedback.classList.remove("text")
         feedback.classList.add("text-success")
         feedback.textContent = "Ha seleccionado Tarjeta De Credito."
-    }
+    } 
    }
-
 
    // costo de envio
    function cost() {
@@ -126,7 +123,7 @@ let cerrarModal = document.getElementById("cerrarModal");
     // lugares donde se muestra el total
     
     let shipCost = document.getElementById("shipCost"); 
-    let subGeneral = document.getElementById("subGeneral").innerHTML
+    let subGeneral = document.getElementById("subGeneral").innerHTML;
     
     if (quinceporc.checked) {
         // premium
@@ -144,12 +141,8 @@ let cerrarModal = document.getElementById("cerrarModal");
     // se muestra el total con la suma
       let total = document.getElementById("total"); 
      total.innerHTML = parseFloat(subGeneral) + parseFloat(shipCost.innerText);
-
     };
-
-
-
-
+    
 // DOM
    document.addEventListener("DOMContentLoaded", function(){
 
@@ -158,11 +151,9 @@ let cerrarModal = document.getElementById("cerrarModal");
             array = resultObj.data
             showCart()
             multiplicar()
-            
         };
     });
 });
-
 
 // Validation
 (function () {
@@ -177,8 +168,27 @@ let cerrarModal = document.getElementById("cerrarModal");
         form.addEventListener('submit', function (event) {
           if (!form.checkValidity()) {
             validar()
+            
+            Swal.fire({
+                position: 'center',
+                icon: 'error',
+                title: '¡Algo salio mal!',
+                text: 'Recuerda rellenar todos los campos.',
+                showConfirmButton: true,
+              })
             event.preventDefault()
             event.stopPropagation()
+
+            // si se valida correctamente, aparece sweet alert
+          } else if (form.checkValidity()){
+            
+            Swal.fire({
+                position: 'center',
+                icon: 'success',
+                title: '¡Compra exitosa!',
+                showConfirmButton: true,
+              })
+            event.preventDefault()
           }
   
           form.classList.add('was-validated')

@@ -11,7 +11,7 @@ function showProdInfo(array){
             let producto = array;
             htmlContentToAppend += `
             <div id="datosprod">
-                <h3>${producto.name}</h3>
+                <h3 class="name">${producto.name}</h3>
                 <hr my-3>
                     <label><b>Precio</b></label>
                         <p>${producto.currency} ${producto.cost}</p>
@@ -63,11 +63,11 @@ function showComments(array){
     
         <div id="comentario">
 
-            <h5 style="text-align: left;">
-            <label style="display: inline-flex; padding-left: 170px;"><i class="fas fa-user-alt"></i></label>
+            <h5>
+            <label><i class="fas fa-user-alt"></i></label>
             <label><strong>${comment.user}  </strong><small class="text-muted"><em>${comment.dateTime}</small></em>  ${starRating(comment.score)}</label> 
             </h5>
-            <p style="text-align: left; padding-left: 170px;" id="descriptionComment">${comment.description}</p>
+            <p id="descriptionComment">${comment.description}</p>
           </div>
         `
         document.getElementById("comentarios").innerHTML = htmlContentToAppend;
@@ -80,7 +80,7 @@ function showRelated(){
     for(let i = 0; i < prodArray.relatedProducts.length; i++){
     let related = prodArray.relatedProducts[i];
     htmlContentToAppend+=`
-    <div class="card" style="width: 31rem; margin: 0px 30px; cursor: pointer;"" onclick="setRelProdID(${related.id})">
+    <div class="card" style="cursor: pointer;"" onclick="setRelProdID(${related.id})">
     <img src="${related.image}" class="card-img-top">
     <div class="card-body">
       <h5 class="card-title">${related.name}</h5>

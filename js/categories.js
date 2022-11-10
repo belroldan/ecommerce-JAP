@@ -35,11 +35,13 @@ function sortCategories(criteria, array){
     return result;
 }
 
+// Guarda ID de categoria
 function setCatID(id) {
     localStorage.setItem("catID", id);
     window.location = "products.html"
 }
 
+// Muestra lista de categorias
 function showCategoriesList(){
 
     let htmlContentToAppend = "";
@@ -71,6 +73,7 @@ function showCategoriesList(){
     }
 }
 
+// Ordena categorias
 function sortAndShowCategories(sortCriteria, categoriesArray){
     currentSortCriteria = sortCriteria;
 

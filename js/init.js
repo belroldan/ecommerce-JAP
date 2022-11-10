@@ -40,9 +40,24 @@ let getJSONData = function(url){
     });
 }
 
+// Funcion que cierra sesion y redirecciona al login
+let bntLogOut = document.getElementById("logout"); // botón logout
+
+function logOut(){
+  localStorage.getItem("email");
+  localStorage.removeItem("email");
+  window.location = "login.html"
+}
+
+// DOM
 document.addEventListener('DOMContentLoaded', function(){
   let email = localStorage.getItem("email");
     if (email !== null){
         document.getElementById("usuario").innerHTML = email;
     }
+    // Al dar clic en el botón "logout" se aplica la función
+    bntLogOut.addEventListener('click', function(){
+      logOut();
+    })
+    
 })

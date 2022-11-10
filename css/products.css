@@ -185,70 +185,10 @@ a.custom-card:hover {
   text-decoration: inherit;
 }
 
-.form-group {
-  text-align: center;
-  padding: 6px 800px;
-  margin: 2px 2px 0 2px;
+h2 {
+    text-align: center;
 }
 
-#paymentP, #paymentChoose {
-  display:inline-block;
-  vertical-align:middle;
-}
-
-#finishBuy {
-  margin: auto;
-  display: flex;
-  text-align: center;
-}
-
-#prodQuantity {
-  text-align: center;
-}
-
-.costos {
-  margin: auto;
-  display: grid;
-  overflow-x: auto;
-  width: 100%;
-}
-
-#producto {
-  margin: auto;
-  width: 50%;
-  height: auto;
-  overflow-x: auto;
-}
-
-.envio {
-  margin: auto;
-  width: 50%;
-  display: block;
-  overflow-x: auto;
-}
-
-body {
-  overflow-x: auto;
-  margin: auto;
-  width: 100%;
-  height: auto;
-  font-family: Raleway, serif;
-}
-
-.payment {
-  overflow-x: auto;
-  margin: auto;
-  width: 100%;
-  height: auto;
-}
-
-.display-6 {
-  text-align: center;
-}
-
-#finish {
-  margin: auto;
-  width: 100%;
-  height: auto;
-  display: block;
-}
+.parrafo {
+    text-align: center;
+  }

@@ -1,0 +1,43 @@
+/* Pie de página */
+footer {
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+}
+
+footer p {
+  margin-bottom: .25rem;
+}
+
+/* Titulo */
+h2 {
+    text-align: center;
+}
+
+/* Imagen */
+.loginpng {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 30%;
+}
+
+/* Inputs */
+#email, #contraseña {
+    width: auto;
+    margin: auto;
+}
+
+/* Boton */
+#login {
+   margin: auto;
+   width: auto;
+   margin-top: 10px;
+}
+
+/* Formulario entero */
+form {
+    text-align: center;
+    display: table;
+}
+
+

@@ -1,7 +1,3 @@
-// Variables
-
-
-
 // Funciones
 
 // Mostrar pagina solo si el usuario esta loggueado
@@ -30,23 +26,51 @@ function showPage() {
       }
     });
 
-    
-    
+
+
   }
 }
-// Muestra E-mail logueado
-function showEmail(){
-    email.innerHTML = localStorage.getItem("email");
+// Guarda cambios
+function saveChanges() {
+  let firstname = document.getElementById('firstname').value;
+  let secname = document.getElementById('secname').value;
+  let firstlast = document.getElementById('firstlast').value;
+  let seclast = document.getElementById('seclast').value;
+  let phone = document.getElementById('phone').value;   
+
+  localStorage.setItem('firstname', firstname)
+  localStorage.setItem('secname', secname)
+  localStorage.setItem('firstlast', firstlast)
+  localStorage.setItem('seclast', seclast)
+  localStorage.setItem('phone', phone)
 }
 
+// Agarra cambios
+function grabChanges() {
+  firstname.value = localStorage.getItem('firstname') 
+  secname.value = localStorage.getItem('secname')
+  firstlast.value = localStorage.getItem('firstlast')
+  seclast.value = localStorage.getItem('seclast')
+  phone.value = localStorage.getItem('phone')
+}
 
-//Validacion de Bootstrap
-(function () {
+// DOM
+document.addEventListener('DOMContentLoaded', function () {
+  // agarra el email de localstorage
+  let email = localStorage.getItem("email");
+  // muestra email de login en input email 
+  document.getElementById("secemail").value = email
+
+  grabChanges();
+  showPage();
+
+  //Validacion de Bootstrap
+  (function () {
     'use strict'
-  
+
     // Fetch all the forms we want to apply custom Bootstrap validation styles to
     var forms = document.querySelectorAll('.needs-validation')
-  
+
     // Loop over them and prevent submission
     Array.prototype.slice.call(forms)
       .forEach(function (form) {
@@ -54,18 +78,14 @@ function showEmail(){
           if (!form.checkValidity()) {
             event.preventDefault()
             event.stopPropagation()
+          } else {
+            saveChanges();
+            event.preventDefault()
+            event.stopPropagation()
           }
-  
+
           form.classList.add('was-validated')
         }, false)
       })
   })()
-
-
-document.addEventListener('DOMContentLoaded', function (){
-    showPage();
-    
-    let email = localStorage.getItem("email");
-    document.getElementById("email").innerHTML = email;
-    
 })

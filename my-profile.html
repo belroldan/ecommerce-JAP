@@ -68,6 +68,7 @@
     <h6 class="display-6">Perfil</h6>
     <hr class="my-h4">
 
+    <!-- Formulario -->
   <form class="row g-3 needs-validation" novalidate>
     <div class="col-md-6">
       <label for="firstname" class="form-label">Primer nombre*</label>
@@ -96,28 +97,26 @@
     </div>
 
     <div class="col-md-6">
-      <label for="email" class="form-label">E-mail</label>
-      <input type="email" class="form-control" id="email" required autocomplete="off">
+      <label for="secemail" class="form-label">E-mail*</label>
+      <input type="email" class="form-control" id="secemail" required>
       <div class="invalid-feedback">
         Por favor, inserte su correo electrónico.
       </div>
     </div>
 
     <div class="col-md-6">
-      <label for="phone" class="form-label">Teléfono de contacto*</label>
-      <input type="number" class="form-control" id="phone" required>
-      <div class="invalid-feedback">
-        Por favor, inserte su teléfono de contacto.
-      </div>
+      <label for="phone" class="form-label">Teléfono de contacto</label>
+      <input type="number" class="form-control" id="phone" autocomplete="off">
     </div>
 
     <hr class="my-h4">
 
     <div class="col-12">
-      <button class="btn btn-primary" type="submit">Guardar cambios</button>
+      <button class="btn btn-primary" id="save" type="submit">Guardar cambios</button>
     </div>
 
   </form>
+  <!-- Fin de formulario -->
   </div>
 </main>
   <!--

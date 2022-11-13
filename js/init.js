@@ -44,8 +44,28 @@ let getJSONData = function(url){
 let bntLogOut = document.getElementById("logout"); // botón logout
 
 function logOut(){
+
   localStorage.getItem("email");
   localStorage.removeItem("email");
+
+  localStorage.getItem('firstname'); 
+  localStorage.removeItem("firstname");
+
+  localStorage.getItem('secname');
+  localStorage.removeItem("secname");
+
+  localStorage.getItem('firstlast');
+  localStorage.removeItem("firstlast");
+
+  localStorage.getItem('seclast');
+  localStorage.removeItem("seclast");
+
+  localStorage.getItem('secemail');
+  localStorage.removeItem("secemail");
+
+  localStorage.getItem('phone');
+  localStorage.removeItem("phone");
+
   window.location = "login.html"
 }
 
@@ -53,7 +73,9 @@ function logOut(){
 document.addEventListener('DOMContentLoaded', function(){
   let email = localStorage.getItem("email");
     if (email !== null){
+        // muestra email en navbar
         document.getElementById("usuario").innerHTML = email;
+        
     }
     // Al dar clic en el botón "logout" se aplica la función
     bntLogOut.addEventListener('click', function(){
